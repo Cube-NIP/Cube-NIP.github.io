@@ -1,0 +1,11 @@
+Cube-NIP-SSG
+Copyright 2026 Cube-NIP
+
+This product includes software developed by The Rust Project Developers
+(https://www.rust-lang.org/).
+
+The Rust Standard Library is dual-licensed under Apache License 2.0
+and the MIT License. A copy of these licenses and the complete
+copyright notices for the Rust Standard Library are available at:
+
+  $(rustc --print sysroot)/share/doc/rust/COPYRIGHT-library.html

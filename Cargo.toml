@@ -1,0 +1,88 @@
+[package]
+    name = "cube-nip-ssg"
+    version = "0.1.0"
+    authors = ["Cube-NIP<Cube-NIP@outlook.com>"]
+    edition = "2024"
+    rust-version = "1.85"
+    description = "The static site generator(SSG) of Cube-NIP's personal blog."
+    readme = "README.md"
+    homepage = "https://Cube-NIP.github.io"
+    repository = "https://github.com/Cube-NIP/Cube-NIP.github.io"
+    license = "Apache-2.0 OR MIT"
+    keywords = ["ssg"]
+    categories = [
+        "wasm",
+        "web-programming",
+    ]
+    build = false
+    include = ["src/**"]
+    publish = false
+    resolver = "3"
+
+[profile.dev]
+    opt-level = 0
+    debug = true
+    strip = false
+    debug-assertions = true
+    overflow-checks = true
+    lto = false
+    panic = "unwind"
+    incremental = true
+    codegen-units = 256
+
+[profile.release]
+    opt-level = 3
+    debug = false
+    strip = true
+    debug-assertions = false
+    overflow-checks = false
+    lto = true
+    panic = "abort"
+    incremental = false
+    codegen-units = 1
+
+[lints.rust]
+    # 强制 unsafe 操作显式封装
+    unsafe_op_in_unsafe_fn = "deny"
+    # 禁止忽略 #[must_use] 返回值
+    unused_must_use = "deny"
+    # 禁止非 ASCII 标识符，保证一致性
+    non_ascii_idents = "deny"
+    # 要求公开 API 必须有文档
+    missing_docs = "warn"
+    # 公开类型应实现 Debug
+    missing_debug_implementations = "warn"
+    # 未被外部引用的 pub 应降级为私有
+    unreachable_pub = "warn"
+    # 清理无意义的数字类型转换
+    trivial_numeric_casts = "warn"
+    # 警告未使用的生命周期参数
+    unused_lifetimes = "warn"
+
+[lints.clippy]
+    # 将默认警告全部升级为错误
+    all = { level = "deny", priority = -1 }
+    # 开启严格的学究式检查
+    pedantic = { level = "warn", priority = -1 }
+    # 开启孵化中的新检查
+    nursery = { level = "warn", priority = -1 }
+    # 检查 Cargo 清单相关问题
+    cargo = { level = "warn", priority = -1 }
+    # 每个 unsafe 块必须有文档说明
+    undocumented_unsafe_blocks = "deny"
+    # 每个 unsafe 块只做一个 unsafe 操作
+    multiple_unsafe_ops_per_block = "deny"
+    # 禁止使用 .unwrap()
+    unwrap_used = "deny"
+    # 禁止使用 .expect()
+    expect_used = "deny"
+    # 禁止显式调用 panic!
+    panic = "deny"
+    # 禁止使用 todo!()
+    todo = "deny"
+    # 禁止使用 unimplemented!()
+    unimplemented = "deny"
+    # 禁止可能 panic 的索引和切片操作
+    indexing_slicing = "deny"
+    # 禁止使用 core::mem::forget
+    mem_forget = "deny"
